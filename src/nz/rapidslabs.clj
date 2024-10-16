@@ -2,10 +2,9 @@
   (:require [com.biffweb :as biff]
             [nz.rapidslabs.email :as email]
             [nz.rapidslabs.app :as app]
-            [nz.rapidslabs.home :as home]
+            [nz.rapidslabs.login :as login]
             [nz.rapidslabs.middleware :as mid]
             [nz.rapidslabs.ui :as ui]
-            [nz.rapidslabs.worker :as worker]
             [nz.rapidslabs.schema :as schema]
             [clojure.test :as test]
             [clojure.tools.logging :as log]
@@ -18,9 +17,9 @@
 (def modules
   [app/module
    (biff/authentication-module {})
-   home/module
-   schema/module
-   worker/module])
+   login/module
+   ;;schema/module
+   ])
 
 (def routes [["" {:middleware [mid/wrap-site-defaults]}
               (keep :routes modules)]
@@ -56,7 +55,8 @@
    :biff.beholder/on-save #'on-save
    :biff.middleware/on-error #'ui/on-error
    :biff.xtdb/tx-fns biff/tx-fns
-   :nz.rapidslabs/chat-clients (atom #{})})
+ ;;  :nz.rapidslabs/chat-clients (atom #{})
+   })
 
 (defonce system (atom {}))
 
