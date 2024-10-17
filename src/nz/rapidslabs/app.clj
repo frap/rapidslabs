@@ -13,6 +13,8 @@
 (defn home-page []
    [:<>
     [:.h-6]
+    [:img.flex-col.object-cover {:src "/img/rapidslabs-precast.jpg"
+                                 :class "hover:object-scale-down"}]
     [:p.text-stone-600.dark:text-gray-400.text-base
      "Rapid Slabs are the experienced professionals for all concrete flooring, concrete slabs & concrete foundations for the greater Wellington region including the Hutt Valley, Porirua, Kapiti Coast and Levin.
      We offer Cupolex, Speedfloor and Ribraft systems. Talk to us today about your requirements."]]
@@ -21,22 +23,23 @@
 (defn contacts-page []
    [:<>
     [:.h-6]
-  [:p.text-orange-500.dark:text-orange-400.text-md
+  [:p.text-orange-500.dark:text-orange-400.text-md.p-4
    "Under construction obviously
-
-you need to call Juppy call 021 430 465"]]
+ you need to call Juppy long " [:a {:href "tel:0275600679"} "027 560 0679" ]]
+    [:img.object-fill.p-10 {:src "/img/slabs-truck.jpg"
+                       :class "hover:object-scale-down"} ]]
   )
 
 (defn enquiry-page []
   [:<>
-  [:p.text-orange-500.dark:text-orange-400.text-md "This is the Enquiry section however I have just copied the cupolex stuff" ]
-   [:text.2xl "Wellington region provider of Cupolex® foundations"]
+  [:p.text-orange-500.dark:text-orange-400.text-md.p-4 "This is the Enquiry section however I have just copied the cupolex stuff" ]
+   [:text-4xl "Wellington region provider of Cupolex® foundations"]
 
-   [:p.text-stone-600 "Rapid Slabs are the only Wellington provider of Cupolex®  Foundations - an up to date technology in concrete flooring.
+   [:p.text-stone-600 "Rapid Slabs are the only Wellington provider of Cupolex®  Foundations - an up to date technology in concrete flooring."
 
-Latest innovations in concrete flooring
+[:text-4xl "Latest innovations in concrete flooring"]
 
-Cupolex®  is one of the latest innovations in concrete flooring that not only saves money but is environmentally friendly as well.
+"Cupolex®  is one of the latest innovations in concrete flooring that not only saves money but is environmentally friendly as well.
 
 How does Cupolex® work
 
@@ -81,7 +84,8 @@ This concrete and polystyrene flooring system can be used widely, from small bui
      "Experienced team leader with decades of experience"]
     [:p.text-gray-500.dark:text-gray-400.text-md
      "Certified builder, Adam Jupp, leads the Rapid Slabs team. With 25 years in the building industry, Adam will ensure you receive a reliable and professional service and a quality concrete foundation suited to your needs."]
-
+    [:img.object-cover {:src "/img/daboys.jpg"
+                        :class "hover:object-scale-down"}]
    ]))
 
 (def tab-names ["Home" "Contacts" "Enquiry" "Concrete" "About"])
@@ -94,13 +98,14 @@ This concrete and polystyrene flooring system can be used widely, from small bui
                         "About" about-page}]
   [:<>
    [:.w-full.test-sm:font-medium.text-center.rounded-lg.shadow.sm:flex
+    [:img.object-cover.bg-stone-200 {:src "/img/rapidslabs-logo.webp"}]
     (for [id tab-names]
-      [:button.inline-block.w-full.p-4.bg-stone.border-s-0.border-stone-200
+      [:button.inline-block.w-full.p-4.bg-stone-200.border-s-0.border-stone-200
        {:role  "tab"
         :name  "tab"
         :value id
         :class
-        "focus-within:z-10 dark:border-stone-700 hover:text-stone-700 hover:bg-stone-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-stone-800 dark:hover:bg-stone-700"
+        "focus-within:z-10 dark:border-stone-700 hover:text-stone-700 hover:bg-cyan-200 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-stone-800 dark:hover:bg-stone-700"
         ;; :checked (when (= id "home")
         ;;            true)
         ;; Hyperscript goes in the :_ attribute.
