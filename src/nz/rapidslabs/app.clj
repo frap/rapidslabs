@@ -25,6 +25,9 @@
 
 (def juppy-tel [:a {:href "tel:0275600679"} "027 560 0679" ])
 (def nick-tel [:a {:href "tel:021453070"} "021 453 070" ])
+
+
+
 (defn contact-us []
   [:<>
    [:div.mx-auto.px-4
@@ -60,7 +63,6 @@
    [:p.mb-4.text-stone-600.text-base.dark:text-stone-200.mx-auto
     "Rapid Slabs are the experienced professionals for all concrete flooring, concrete slabs & concrete foundations for the greater Wellington region including the Hutt Valley, Porirua, Kapiti Coast and Levin.
      We offer Cupolex, Speedfloor and Ribraft systems. Talk to us today about your requirements."]]
- ;; [:div (contact-us)]
   )
 
 (defn enquiry-page []
