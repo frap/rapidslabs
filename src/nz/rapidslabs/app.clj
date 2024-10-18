@@ -1,6 +1,7 @@
 (ns nz.rapidslabs.app
   (:require [com.biffweb :as biff :refer [q]]
             [nz.rapidslabs.middleware :as mid]
+            [clojure.string :as str]
             [nz.rapidslabs.ui :as ui]
             [clojure.string :as str]
             [nz.rapidslabs.settings :as settings]
@@ -10,12 +11,19 @@
             [cheshire.core :as cheshire]))
 
 
+(def rib-raft-imgs ["rib-raft-1c" "rib-raft-1d" "rib-raft-1f"])
+(defn image-component [img-names]
+  [:<>
+   (for [img img-names]
+     [:.mb-4.h-auto.max-w-full.rounded-full {:src (str "/img/" img ".webp")}
+      ])])
+
 (defn home-page []
    [:<>
     [:.h-6]
-    [:img.flex-col.object-cover {:src "/img/rapidslabs-precast.jpg"
-                                 :class "hover:object-scale-down"}]
-    [:p.text-stone-600.dark:text-gray-400.text-base
+    [:img.flex-col.rounded-lg.shadow-none.transition-shadow.duration-300.ease-in-out {:src "/img/rapidslabs-precast.jpg"
+                                 :class "hover:object-scale-down hover:shadow-lg hover.shadow-black/50"}]
+    [:p.mb-4.text-stone-600.dark:text-gray-400.text-base
      "Rapid Slabs are the experienced professionals for all concrete flooring, concrete slabs & concrete foundations for the greater Wellington region including the Hutt Valley, Porirua, Kapiti Coast and Levin.
      We offer Cupolex, Speedfloor and Ribraft systems. Talk to us today about your requirements."]]
   )
@@ -32,16 +40,17 @@
 
 (defn enquiry-page []
   [:<>
-  [:p.text-orange-500.dark:text-orange-400.text-md.p-4 "This is the Enquiry section however I have just copied the cupolex stuff" ]
-   [:text-4xl "Wellington region provider of Cupolex® foundations"]
+  [:p.text-orange-500.mb-4.leading-loose "This is the Enquiry section however I have just copied the cupolex stuff" ]
+   [:text-3xl.font-medium.leading-tight "Wellington region provider of Cupolex® foundations"]
 
-   [:p.text-stone-600 "Rapid Slabs are the only Wellington provider of Cupolex®  Foundations - an up to date technology in concrete flooring."
+   [:.mb-4.text-stone-600 "Rapid Slabs are the only Wellington provider of Cupolex®  Foundations - an up to date technology in concrete flooring."
+    [:.text-3xl.font-medium.text-stone-600.leading-tight "Latest innovations in concrete flooring"]
+    [:.mb-4.text-stone-600.leading-loose "Cupolex®  is one of the latest innovations in concrete flooring that not only saves money but is environmentally friendly as well.
+"]
+    [:.text-3xl.font-medium.leading-tight "How does Cupolex® work" ]
 
-[:text-4xl "Latest innovations in concrete flooring"]
+"
 
-"Cupolex®  is one of the latest innovations in concrete flooring that not only saves money but is environmentally friendly as well.
-
-How does Cupolex® work
 
 Using 100% recycled plastic moulded dome forms as a foundation, concrete is poured over the plastic forms creating a structure for the concrete slab. The plastic foundation reduces the amount of contact the concrete has with the soil and restricts the amount of moisture seeping through the concrete
 The advantages of using Cuploex®
@@ -54,39 +63,51 @@ Stop concrete curing problems with Cupolex® "]]
   )
 
 (defn concrete-page []
-  [:<> "Ribraft flooring - an innovative flooring solution on offer from Rapid Slabs
-
-Ribraft is a concrete flooring system that’s becoming increasingly popular for residential and commercial applications throughout New Zealand.
-
-
-Concrete flooring system offering lots of advantages
-
-Quick to lay, durable, and seismically strong due to its construction method, Ribraft offers many advantages over standard concrete foundations including the cleaner construction method, with far less excavated material and waste.
-
-
-Unique construction method uses concrete & polystyrene
-
-Ribraft flooring is a concrete flooring system created using polystyrene pods, plastic spacers, steel reinforcing pods and RaftMix concrete. Due to the construction method of the components simply fitting together and no need to dig footings, labour time and costs can be reduced considerably.
-
-
-Where can this flooring solution be used
-
-This concrete and polystyrene flooring system can be used widely, from small buildings to large developments."])
+  [:<>
+   [:.h-6]
+   [:.text-3xl.font-medium.leading-tight "Ribraft flooring - an innovative flooring solution on offer from Rapid Slabs"]
+   [:.mb-4.text-stone-600.leading-loose "Ribraft is a concrete flooring system that’s becoming increasingly popular for residential
+ and commercial applications throughout New Zealand."]
+   [:.text-3xl.font-medium.leading-tight "Concrete flooring system offering lots of advantages"]
+   [:.mb-4.text-stone-600.leading-loose "Quick to lay, durable, and seismically strong due to its construction method,
+Ribraft offers many advantages over standard concrete foundations including the cleaner construction method,
+with far less excavated material and waste."]
+   (image-component rib-raft-imgs)
+   [:.text-3xl.font-medium.leading-tight "Unique construction method uses concrete & polystyrene"]
+   [:.mb-4.leading-loose "Ribraft flooring is a concrete flooring system created using polystyrene pods,
+ plastic spacers, steel reinforcing pods and RaftMix concrete.
+ Due to the construction method of the components simply fitting together and no need to dig footings, labour time and costs can be reduced considerably.
+" ]
+   [:.text-3xl.font-medium.leading-tight "Where can this flooring solution be used" ]
+   [:.mb-4.leading-loose "This concrete and polystyrene flooring system can be used widely,
+   from small buildings to large developments."]])
 
 (defn about-page []
-  (ui/page
-   {:base/title (str "About " settings/app-name)}
-   [:<>
-    [:text-xl.font-bold "Create a solid foundation for your house or building"]
-    [:p.text-gray-500.dark:text-gray-400.text-md
+  [:<>
+    [:.text-3xl.font-medium.text-stone-600.leading-tight "Create a solid foundation for your house or building"]
+    [:p.mb-4.text-stone-600.dark:text-gray-400.mb-4.leading-loose
      "Rapid Slabs offer the right solutions for all your concrete floors and slabs requirements. Known for providing a quick, efficient, and quality job at the same time as being cost effective, Rapid Slabs are the team to contact for all your concrete foundation requirements. Call us today!"]
-    [:text-lg.font-bold
-     "Experienced team leader with decades of experience"]
-    [:p.text-gray-500.dark:text-gray-400.text-md
-     "Certified builder, Adam Jupp, leads the Rapid Slabs team. With 25 years in the building industry, Adam will ensure you receive a reliable and professional service and a quality concrete foundation suited to your needs."]
-    [:img.object-cover {:src "/img/daboys.jpg"
-                        :class "hover:object-scale-down"}]
-   ]))
+    [:.text-3xl.font-medium.text-stone-600.leading-tight
+     "Experienced team leaders with decades of experience"]
+    [:.flex-col.flex-grow
+     [:img.h-auto.max-w-sm.rounded-lg.shadow-none.transition-shadow.duration-300.ease-in-out {:src "/img/daboys.jpg"
+                        :class "hover:shadow-lg hover.shadow-black/50"}]
+     [:p.mb-4.text-stone-600.mb-4.leading-loose
+     "Certified builders, Adam Jupp & Nick Jones, lead the Rapid Slabs team.
+       With a combined over 50 years building experience, Adam & Nick  will
+       ensure you receive a reliable and professional service and a quality
+       concrete foundation suited to your needs."
+      ]
+     ]
+
+
+   ]
+  ;; (ui/page
+  ;;  {:base/title (str "About " settings/app-name)}
+  ;; )
+  )
+
+
 
 (def tab-names ["Home" "Contacts" "Enquiry" "Concrete" "About"])
 
