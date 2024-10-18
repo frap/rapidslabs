@@ -44,70 +44,25 @@
                                     head))))
    body))
 
+(def phone
+  [:svg.size-6 {:fill "currentColor" :viewBox "0 0 24 24"
+                :path {:fill-rule "evenodd" :clip-rule "evenodd"
+                       :d "M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z"}}])
 
-(def tabs
-  [:<>.border-b.border-stone-200.mb-4
-   [:ul#tabs
-    {:class '["hidden" "text-sm" "font-medium" "text-center" "text-gray-500" "rounded-lg" "shadow" "sm:flex" "dark:divide-stone-700" "dark:text-stone-400"]
-     :role "tablist" }
-    [:li
-     {:class "w-full focus-within:z-10"}
-     [:a
-      { :href "#home",
-       :class
-       "inline-block w-full p-4 text-stone-900 bg-stone-100 border-r border-stone-200 dark:border-stone-700 rounded-s-lg focus:ring-4 focus:ring-blue-300 active focus:outline-none dark:bg-stone-700 dark:text-white"
-       :data-tabs-toggle "#home"}
-      "Home"]]
-    [:li
-     {:class "w-full focus-within:z-10"}
-     [:a
-      { :href "/about",
-       :class
-       "inline-block w-full p-4 bg-white border-r border-stone-200 dark:border-stone-700 hover:text-stone-700 hover:bg-stone-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-stone-800 dark:hover:bg-stone-700"
-       :data-tabs-toggle "#tabcontent"}
-      "About Us"]]
-    [:li
-     {:class "w-full focus-within:z-10"}
-     [:a
-      { :href "#enquiry",
-       :class
-       "inline-block w-full p-4 bg-cyan border-r border-stone-200 dark:border-stone-700 hover:text-stone-700 hover:bg-stone-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-stone-800 dark:hover:bg-stone-700"}
-      "Quote / Enquiry"]]
-    [:li
-     {:class "w-full focus-within:z-10"}
-     [:a
-      {:href "#concrete",
-       :class
-       "inline-block w-full p-4 bg-cyan border-s-0 border-stone-200 dark:border-stone-700 rounded-e-lg hover:text-stone-700 hover:bg-stone-50 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:hover:text-white dark:bg-stone-800 dark:hover:bg-stone-700"}
-      "Concrete Stuff"]]
-    [:li
-     {:class "w-full focus-within:z-10"}
-     [:a
-      {:href "#contact",
-       :class
-       "inline-block w-full p-4 bg-cyan border-s-0 border-stone-200 dark:border-stone-700 rounded-e-lg hover:text-stone-700 hover:bg-stone-50 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:hover:text-white dark:bg-stone-800 dark:hover:bg-stone-700"
-       :data-tabs-toggle "#contact"}
-      "Contact Us"]]
-    ]
-   [:#tabcontent
-    [:#home
-     {
-      :hx-get     "/home",
-      :hx-trigger "load delay:100ms",
-      :hx-target  "#tabcontent",
-      :hx-swap    "innerHTML"}]]
-   ])
 
 (defn page [ctx & body]
   (base
    ctx
-   [:.bg-zinc-100.flex.flex-col.flex-grow
+   [:.bg-zinc-100.flex.flex-col.flex-grow {:class "dark:bg-zinc-500"}
     [:.p-3.mx-auto.max-w-6xl.w-full
      (when (bound? #'csrf/*anti-forgery-token*)
        {:hx-headers (cheshire/generate-string
-                      {:x-csrf-token csrf/*anti-forgery-token*})})
+                     {:x-csrf-token csrf/*anti-forgery-token*})})
 
      body]
+    [:p-3.mx-auto.max-w-6xl.w-full
+     [:.text-base.text-orange-500.mb-4
+      "Under construction: If you need help,  call Juppy " [:a {:href "tel:0275600679"} "027 560 0679" ]]]
     [:.flex-grow]
     [:.flex-grow]]))
 
