@@ -54,15 +54,15 @@
   (base
    ctx
    [:.bg-zinc-100.flex.flex-col.flex-grow {:class "dark:bg-zinc-500"}
-    [:.p-3.mx-auto.max-w-6xl.w-full
+    [:.p-4.mx-auto.max-w-8xl.w-full
      (when (bound? #'csrf/*anti-forgery-token*)
        {:hx-headers (cheshire/generate-string
                      {:x-csrf-token csrf/*anti-forgery-token*})})
 
      body]
-    [:p-3.mx-auto.max-w-6xl.w-full
+    [:.p-4.mx-auto.max-w-8xl.w-full
      [:.text-base.text-orange-500.mb-4
-      "Under construction: If you need help,  call Juppy " [:a {:href "tel:0275600679"} "027 560 0679" ]]]
+      "Under construction: If you need help, call Juppy " [:a {:href "tel:0275600679"} "027 560 0679" ] " or Nick 021 453 070"]]
     [:.flex-grow]
     [:.flex-grow]]))
 
