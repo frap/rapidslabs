@@ -225,7 +225,7 @@ with far less excavated material and waste."]
                         "About Rapid Slabs" about-page}]
   [:<>
    [:.w-full.test-sm:font-medium.text-center.rounded-lg.dark:bg-stone-400.dark:border-stone-700.flex
-    [:img.object-cover.bg-stone-200 {:src "/img/rapidslabs-logo.webp"}]
+     [:img.object-cover.hbg-stone-200 {:src "/img/rapidslabs-logo.webp"}]
     (for [id tab-names]
       [:button.inline-block.w-full.p-4.bg-stone-200.border-s-0.border-stone-300
        {:role  "tab"
