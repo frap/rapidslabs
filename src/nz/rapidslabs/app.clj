@@ -50,57 +50,126 @@
        :frameborder 0 :style "border:0;" :allowfullscreen "" :aria-hidden "false" :tabindex 0}]]
     ]])
 
+(defn contact-form []
+  [:div
+   {:class "mx-auto block max-w-md rounded-lg bg-stone-100 p-6 shadow-4 dark:bg-surface-dark"}
+   [:form
+    ;; Name input
+    [:div {:class "relative mb-6" :data-twe-input-wrapper-init true}
+     [:input
+      {:type "text"
+       :class "peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0"
+       :id "exampleInput7"
+       :placeholder "Name"}]
+     [:label
+      {:for "exampleInput7"
+       :class "pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[twe-input-state-active]:-translate-y-[0.9rem] peer-data-[twe-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-300 dark:peer-focus:text-primary"}
+      "Name"]]
+
+    ;; Email input
+    [:div {:class "relative mb-6" :data-twe-input-wrapper-init true}
+     [:input
+      {:type "email"
+       :class "peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0"
+       :id "exampleInput8"
+       :placeholder "Please input your Email address"}]
+     [:label
+      {:for "exampleInput8"
+       :class "pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[twe-input-state-active]:-translate-y-[0.9rem] peer-data-[twe-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-300 dark:peer-focus:text-primary"}
+      "Email address"]]
+
+    ;; Message textarea
+    [:div {:class "relative mb-6" :data-twe-input-wrapper-init true}
+     [:textarea
+      {:class "peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0"
+       :id "exampleFormControlTextarea13"
+       :rows "3"
+       :placeholder "Your Enquiry"}]
+     [:label
+      {:for "exampleFormControlTextarea13"
+       :class "pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[twe-input-state-active]:-translate-y-[0.9rem] peer-data-[twe-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-300 dark:peer-focus:text-primary"}
+      "Your Enquiry"]]
+
+    ;; Checkbox
+    [:div {:class "mb-6 flex min-h-[1.5rem] items-center justify-center ps-[1.5rem]"}
+     [:input
+      {:type "checkbox"
+       :class "relative float-left -ms-[1.5rem] me-[6px] mt-[0.15rem] h-[1.125rem] w-[1.125rem] appearance-none rounded-[0.25rem] border-[0.125rem] border-solid border-secondary-500 outline-none before:pointer-events-none before:absolute before:h-[0.875rem] before:w-[0.875rem] before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-checkbox before:shadow-transparent before:content-[''] checked:border-primary checked:bg-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:-mt-px checked:after:ms-[0.25rem] checked:after:block checked:after:h-[0.8125rem] checked:after:w-[0.375rem] checked:after:rotate-45 checked:after:border-[0.125rem] checked:after:border-l-0 checked:after:border-t-0 checked:after:border-solid checked:after:border-white checked:after:bg-transparent checked:after:content-[''] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-black/60 focus:shadow-none focus:transition-[border-color_0.2s] focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-black/60 focus:before:transition-[box-shadow_0.2s,transform_0.2s] focus:after:absolute focus:after:z-[1] focus:after:block focus:after:h-[0.875rem] focus:after:w-[0.875rem] focus:after:rounded-[0.125rem] focus:after:content-[''] checked:focus:before:scale-100 checked:focus:before:shadow-checkbox checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:after:-mt-px checked:focus:after:ms-[0.25rem] checked:focus:after:h-[0.8125rem] checked:focus:after:w-[0.375rem] checked:focus:after:rotate-45 checked:focus:after:rounded-none checked:focus:after:border-[0.125rem] checked:focus:after:border-l-0 checked:focus:after:border-t-0 checked:focus:after:border-solid checked:focus:after:border-white checked:focus:after:bg-transparent rtl:float-right dark:border-neutral-400 dark:checked:border-primary dark:checked:bg-primary"
+       :id "exampleCheck10"}]
+     [:label
+      {:for "exampleCheck10"
+       :class "inline-block ps-[0.15rem] pt-[0.15rem] hover:cursor-pointer"}
+      "Send me a copy of this message"]]
+
+    ;; Submit button
+    [:button
+     {:type "submit"
+      :class "inline-block w-full rounded bg-cyan-600 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong"
+      :data-twe-ripple-init ""
+      :data-twe-ripple-color "light"}
+     "Send"]]])
+
 (defn contactus []
   [:<>
    [:section
-   {:id "contact", :class "bg-gray-100 p-8 rounded shadow-md"}
-   [:h2
-    {:class "text-3xl font-extrabold text-gray-900 mb-6"}
-    "Contact Us"]
-   [:p
-    {:class "text-lg text-gray-600 mb-4"}
-    "Top Quality, Reliable Pricing, No Corners Cut!"]
-   [:p
-    {:class "text-gray-600 mb-4"}
-    "Email:"
+    {:id "contact", :class "bg-gray-100 p-8 rounded shadow-md"}
+    [:h2
+     {:class "text-3xl font-extrabold text-gray-900 mb-6"}
+     "Contact Us"]
+    [:p
+     {:class "text-lg text-gray-600 mb-4"}
+     "Top Quality, Reliable Pricing, No Corners Cut!"]
+    [:p
+     {:class "text-gray-600 mb-4"}
+     "Email:"
+     [:a
+      {:href "mailto:contactus@rapidslabs.co.nz",
+       :class "text-blue-600 hover:underline"}
+      "contactus@rapidslabs.co.nz"]]
     [:a
-     {:href "mailto:contactus@rapidslabs.co.nz",
-      :class "text-blue-600 hover:underline"}
-     "contactus@rapidslabs.co.nz"]]
-   [:a
-    {:href "#",
-     :class
-     "mt-4 inline-block bg-blue-600 text-white px-6 py-3 rounded shadow hover:bg-blue-700"}
-    "Get a Free Quote"]]]
+     {:href "#",
+      :class
+      "mt-4 inline-block bg-blue-600 text-white px-6 py-3 rounded shadow hover:bg-blue-700"}
+     "Get a Free Quote"]]]
   )
 
 (defn enquiry-page [_ctx]
   (ui/app-page
    {}
    [:section#enquiry.mb-16
-    [:h2.text-3xl.font-extrabold.mb-6.text-stone-900.dark:text-stone-100 "Enquiry Form"]
+    [:h2.text-3xl.font-extrabold.mb-6.text-stone-900.dark:text-stone-100 "Contact Us"]
+    [:.text-2xl.font-medium.leading-tight.dark:text-stone-100
+     "Top Quality, Reliable Pricing, No Corners Cut!"]
+   [:.mb-4.text-stone-600.leading-loose {:class "dark:text-stone-200"}
+    "At Rapid Slabs & Precast, we believe in providing competitive, comprehensive pricing that reflects the quality and expertise we bring to every project. Engaging with us early in your planning process allows us to identify more efficient and cost-effective construction methods, whether it’s for a complex slab or a custom precast job. We pride ourselves on fair pricing while while promising our work will be among the best."]
+    [:.mb-4.text-stone-600.leading-loose {:class "dark:text-stone-200"}
+     "Our team specialises in complex, custom slab solutions that set us apart from the competition. Reach out to discuss your next project and let us show you the value of partnering with experienced professionals who care about your success."]
     [:div.bg-stone-100.p-6.shadow-md.rounded-lg.dark:bg-stone-800
      (biff/form
       {:class "dark:shadow-black/10"
        :action "/app/send-email"}
       ;; Name Label and Input
-      [:div.mb-4
-       [:label.block.text-stone-700.dark:text-stone-200 {:for "name"} "Your Name"]
-       [:input.w-full.px-4.py-2.bg-stone-50.text-stone-900.rounded-md.shadow-inner.focus:outline-none.focus:ring-2.focus:ring-cyan-600.dark:bg-stone-700.dark:text-stone-100
-        {:type "text" :name "first" :id "name" :placeholder "Enter your name"}]]
+      ;; [:div.mb-4
+      ;;  [:label.block.text-stone-700.dark:text-stone-200 {:for "name"} "Your Name"]
+      ;;  [:input.w-full.px-4.py-2.bg-stone-50.text-stone-900.rounded-md.shadow-inner.focus:outline-none.focus:ring-2.focus:ring-cyan-600.dark:bg-stone-700.dark:text-stone-100
+      ;;   {:type "text" :name "first" :id "name" :placeholder "Enter your name"}]]
 
-      [:div.mb-4
-       [:label.block.text-stone-700.dark:text-stone-200 {:for "enquiry"} "Your Enquiry"]
-       [:input.w-full.px-4.py-2.bg-stone-50.text-stone-900.rounded-md.shadow-inner.focus:outline-none.focus:ring-2.focus:ring-cyan-600.dark:bg-stone-700.dark:text-stone-100
-        {:type "text" :name "enquiry" :id "enquiry" :placeholder "Enter your Enquiry"}]]
-      ;; Submit Button
-      [:div.flex.justify-between.items-center
-       [:button.btn.px-4.py-2.bg-cyan-600.text-white.font-bold.rounded-lg.hover:bg-cyan-700.focus:outline-none.focus:ring-2.focus:ring-cyan-500.dark:bg-cyan-700.dark:hover:bg-cyan-800
-        {:type "submit"} "Submit"]]
+      ;; [:div.mb-4
+      ;;  [:label.block.text-stone-700.dark:text-stone-200 {:for "enquiry"} "Your Enquiry"]
+      ;;  [:input.w-full.px-4.py-2.bg-stone-50.text-stone-900.rounded-md.shadow-inner.focus:outline-none.focus:ring-2.focus:ring-cyan-600.dark:bg-stone-700.dark:text-stone-100
+      ;;   {:type "text" :name "enquiry" :id "enquiry" :placeholder "Enter your Enquiry"}]]
+      ;; ;; Submit Button
+      ;; [:div.flex.justify-between.items-center
+      ;;  [:button.btn.px-4.py-2.bg-cyan-600.text-white.font-bold.rounded-lg.hover:bg-cyan-700.focus:outline-none.focus:ring-2.focus:ring-cyan-500.dark:bg-cyan-700.dark:hover:bg-cyan-800
+      ;;   {:type "submit"} "Submit"]]
 
-      ;; Additional Instructions
-      [:p.text-sm.text-stone-600.mt-4.dark:text-stone-300
-       "Please enter your name and any details in the comments section."])]]))
+      ;; ;; Additional Instructions
+      ;; [:p.text-sm.text-stone-600.mt-4.dark:text-stone-300
+      ;;  "Please enter your name and any details in the enquiry section."]
+      (contact-form)
+      )
+
+     ]]))
 
 
 (defn carousel []
@@ -313,29 +382,46 @@ with far less excavated material and waste."]
       "Close"]]]]
   )
 
+(defn gallery-3-wide [images]
+  [:div {:class "mx-auto px-5 py-2 lg:px-32 lg:pt-12"}
+   [:div {:class "-m-1 flex flex-wrap md:-m-2"}
+    (for [img images]
+      [:div {:class "flex w-1/3 flex-wrap"}
+       [:div {:class "w-full p-1 md:p-2"}
+        [:img {:alt "gallery"
+               :class "block h-full w-full rounded-lg object-cover object-center"
+               :src img}]]])]])
+
 (def images
   [[ "/img/slabs-crane.jpg" "Slabs Crane"]
    ["/img/rib-raft-1d.webp" "Ribraft"]
    ["/img/slabs-cupolex4.webp" "Cupolex"]])
 
+(def images2 [["https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+             "https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(74).webp"
+             "https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(75).webp"
+             "https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(70).webp"
+             "https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(76).webp"
+             "https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(72).webp"]])
+
 
 (defn products-page [_ctx]
   (ui/app-page
    {}
-   [:#products.mb-16
+   [:div.mx-4.mb-16
+    {:id "products"}
     [:h2.text-3xl.font-extrabold.text-stone-900.mb-6
      {:class "dark:text-stone-100"} "Expert Solutions for Every Foundation Need"]
     [:p.text-lg.text-stone-700.leading-relaxed.mb-6
      "We know our foundations, and we understand that one size doesn’t fit all! At Rapid Slabs & Precast, we specialise in a wide range of foundation solutions tailored to meet the specific needs of every project. From conventional slabs to complex, engineered foundations, we’ll work with you to determine the best approach for your build, whether it’s a small residential job or a large commercial project."]
-     [:ul.list-disc.list-inside.text-stone-700.space-y-2
+    [:ul.list-disc.list-inside.text-stone-700.space-y-2
      [:li "Speedfloor"]
      [:li "Cupolex Ecodome"]
      [:li "Firth Xpod"]
      [:li "Quickset"]
      [:li "Armadillo System by Cresco"]
      [:li "Ribraft"]]
-
-    [:div (carousel)]
+    [:div (gallery-3-wide images2)]
     [:p.text-lg.text-stone-700.leading-relaxed.mt-6
      "From the initial consultation to project completion, we’re dedicated to working closely with you to ensure your foundation meets the highest standards of durability, precision, and reliability. Rapid Slabs & Precast is here to help lay the groundwork for your project’s success."]
 
@@ -345,7 +431,7 @@ with far less excavated material and waste."]
   (ui/app-page
    {}
    [:section#projects.mb-16
-    [:h2.text-3xl.font-extrabold.text-stone-900.mb-6
+    [:h2.mb-2.mt-0.text-3xl.font-extrabold.text-stone-900.mb-6
      {:class "dark:text-stone-100"} "Rapid Slabs Projects"]
     [:p.text-lg.text-stone-700.leading-relaxed.mb-6
      "Reputation in our industry is key to our success. Here are some of the projects we’re proud to have been a part of:"]
@@ -353,15 +439,14 @@ with far less excavated material and waste."]
      [:li "Foundations – simple and complex examples"]
      [:li "Precast – the Works, Tesla"]
      [:li "Other projects – Morgan’s farm"]]
-    ;;
     [:div (carousel)]
     ]))
 
 (defn services-page [_ctx]
   (ui/app-page
    {}
-   [:section#services.mb-16.bg-no-repeat.bg-cover.h-screen
-    [:h2.text-3xl.font-extrabold.text-stone-900.mb-6
+   [:section#services.mb-16
+    [:h2.mb-2.mt-0.text-3xl.font-extrabold.text-stone-900.mb-6
      {:class "dark:text-stone-100"} "Rapid Services"]
     [:div.grid.grid-cols-1.md:grid-cols-2.gap-8
      ;; Foundations Card
@@ -388,7 +473,7 @@ with far less excavated material and waste."]
   (ui/app-page
    {}
    [:section#about.mb-16.bg-no-repeat.bg-contain
-    [:h2.text-3xl.font-extrabold.text-stone-900.mb-6
+    [:h2.mb-2.mt-0.text-3xl.font-extrabold.text-stone-900.mb-6
      {:class "dark:text-stone-100"}
      "Building Strong Foundations, Together"]
     ;; Introduction Paragraph
@@ -432,7 +517,7 @@ with far less excavated material and waste."]
 (defn app [_ctx]
   (ui/app-page
    {}
-   [:section#homepage.mb-16.bg-contain.bg-no-repeat.h-screen
+   [:section#homepage.mb-16
     {:class "mt-[60px]"
      ;; :style {:background-image "url('/img/rapidslabs_juppy.jpg')"}
      }

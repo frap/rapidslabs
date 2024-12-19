@@ -322,7 +322,7 @@
                :clip-rule "evenodd"}]]]]]])
 
 (def nav2
-  [:nav.bg-white.shadow-md.sticky.top-0.z-50
+  [:nav.bg-stone-100.shadow-md.sticky.top-0.z-50
    {:class
     "flex-no-wrap relative w-full min-h-[120px] max-h-[120px] items-center justify-between bg-neutral-100 py-2 shadow-md shadow-black/5 dark:bg-neutral-600 dark:shadow-black/10 lg:flex-wrap lg:justify-start lg:py-4",
     :data-twe-navbar-ref true}
@@ -459,6 +459,71 @@
       ]]]
    )
 
+
+(def footer-tw
+  [:footer
+ {:class
+  "bg-zinc-50 text-center text-surface/75 dark:bg-neutral-700 dark:text-white/75 lg:text-left"}
+ (comment "Main")
+ [:div
+  {:class "mx-6 py-10 text-center md:text-left"}
+  [:div
+   {:class "grid-1 grid gap-8 md:grid-cols-2 lg:grid-cols-3"}
+   (comment "Rapid Slabs section")
+   [:div
+    {:class ""}
+    [:h6
+     {:class
+      "mb-4 flex items-center justify-center font-semibold uppercase md:justify-start"}
+     [:span
+      {:class "me-3 [&>svg]:h-4 [&>svg]:w-4"}
+      [:svg
+       {:xmlns "http://www.w3.org/2000/svg",
+        :viewBox "0 0 24 24",
+        :fill "currentColor"}
+       [:path
+        {:d
+         "M12.378 1.602a.75.75 0 00-.756 0L3 6.632l9 5.25 9-5.25-8.622-5.03zM21.75 7.93l-9 5.25v9l8.628-5.032a.75.75 0 00.372-.648V7.93zM11.25 22.18v-9l-9-5.25v8.57a.75.75 0 00.372.648l8.628 5.033z"}]]]
+     "Rapid Slabs"]
+    [:p
+     "@Rapid Slabs youve got a partner for the future\n        were commited to building strong fundations\n        competitive, comprehensive pricing! \n Quality and expertise ."]]
+   (comment "Products section")
+   [:div
+    [:h6
+     {:class
+      "mb-4 flex justify-center font-semibold uppercase md:justify-start"}
+     "Products"]
+    [:p {:class "mb-4"} [:a {:href "/products"} "Speedfloor"]]
+    [:p {:class "mb-4"} [:a {:href "/products"} "Cuploex Ecodome"]]
+    [:p {:class "mb-4"} [:a {:href "/products"} "Firth Xpod"]]
+    [:p [:a {:href "/products"} "Ribraft"]]]
+   (comment "Contact section")
+   [:div
+    [:h6
+     {:class
+      "mb-4 flex justify-center font-semibold uppercase md:justify-start"}
+     "Contact"]
+    [:p
+     {:class "mb-4 flex items-center justify-center md:justify-start"}
+     address-svg "7A Kapuni Grove, Porirua"]
+    [:p
+     {:class "mb-4 flex items-center justify-center md:justify-start hover:text-stone-500"}
+     email-svg contact-us]
+    [:p
+     {:class "mb-4 flex items-center justify-center md:justify-start hover:text-stone-500"}
+     mobile-svg juppy-tel]
+    [:p
+     {:class "flex items-center justify-center md:justify-start hover:text-stone-500"}
+     mobile-svg nick-tel]]]]
+ (comment "Copyright section")
+ [:div
+  {:class "bg-black/5 p-6 text-center"}
+  [:span "© 2024 Copyright:"]
+  [:a
+   {:class "font-semibold", :href "https://rapidslabs.co.nz/"}
+   "Rapid Slabs"]]])
+
+
 (def footer2
   [:footer.bg-stone-100.shadow-md.sticky.bottom-0
    {:class "md:container dark:shadow-black/10 dark:bg-stone-800"}
@@ -470,14 +535,15 @@
 (defn app-page [ctx & body]
   (base
    ctx
-   [:div
-    {:class "mx-auto max-w-[540px] sm:max-w-[604px] md:max-w-[720px] lg:max-w-[972px] xl:max-w-full xl:px-12 2xl:max-w-[1400px]"}
+   [:div.mx-auto.bg-stone-100.dark:bg-stone-900
+    ;; resize default pages
+    ;;{:class "max-w-[540px] sm:max-w-[604px] md:max-w-[720px] lg:max-w-[972px] xl:max-w-full xl:px-12 2xl:max-w-[1400px]"}
     nav2
-    [:main.text-stone-800.bg-stone-100
-     {:class "mt-[60px] md:container mx-auto px-4 dark:text-stone-200 dark:bg-stone-900"
+    [:main.mx-auto.text-stone-800.px-4
+     {:class "mt-[60px] md:container dark:text-stone-200 "
 
       }
      body
      ]
-    footer
+    footer-tw
     ]))
