@@ -1,8 +1,8 @@
 module.exports = {
   content: [
     './src/**/*',
-    // './resources/**/*',
-    "./resources/public/node_modules/tw-elements/js/**/*.js"
+    './node_modules/tw-elements/js/**/*.js',
+    "./resources/node_modules/tw-elements/js/**/*.js"
   ],
   theme: {
     extend: {},

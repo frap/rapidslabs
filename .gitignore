@@ -23,3 +23,5 @@ pom.xml.asc
 .lsp/
 .portal/
 .shadow-cljs/
+
+/resources/node_modules/

@@ -145,29 +145,49 @@
 (def nick-tel [:a {:href "tel:021453070" :alt "021 453 070"} " Nick " ])
 (def contact-us [:a {:href "mail:contactus@rapidslabs.co.nz" :alt "contactus@rapidslabs.co.nz"} "contactus@rapidslabs.co.nz"])
 
+;; (defn contact-section []
+;;   [:<>
+;;    [:.mb-9.flex.justify-center.text-neutral-700
+;;     {:class  "text-surface/75 dark:bg-neutral-700 dark:text-white/75 lg:text-left"}
+;;    [:.flex.flex-col.items-center.justify-center
+;;     {:class
+;;      "border-b-2 border-neutral-200 p-6 dark:border-white/10 lg:justify-between"}
+;;     [:.flex.flex-row
+;;      [:p.mb-4.mx-4.flex.flex-row.justify-center.font-semibold.uppercase {:class "md:justify-start"}
+;;       "Contact "]
+;;      [:p.mb-4.flex.items-center.justify-center {:class "md:justify-start hover:text-cyan"}
+;;       address-svg
+;;       " 7A Kapuni Grove, Porirua "]
+;;      [:p.mb-4.mx-4.flex.items-center.justify-center {:class "md:justify-start hover:text-cyan"}
+;;       email-svg
+;;       contact-us]
+;;      [:p.mb-4.mx-4.flex.items-center.justify-center {:class "md:justify-start"}
+;;       mobile-svg
+;;       nick-tel]
+;;      [:p.mb-4.mx-4.flex.items-center.justify-center {:class "md:justify-start"}
+;;       mobile-svg
+;;       juppy-tel]]]]]
+;;   )
+
 (defn contact-section []
   [:<>
-   [:.mb-9.flex.justify-center.text-neutral-700
-    {:class  "text-surface/75 dark:bg-neutral-700 dark:text-white/75 lg:text-left"}
-   [:.flex.flex-col.items-center.justify-center
-    {:class
-     "border-b-2 border-neutral-200 p-6 dark:border-white/10 lg:justify-between"}
-    [:.flex.flex-row
-     [:p.mb-4.mx-4.flex.flex-row.justify-center.font-semibold.uppercase {:class "md:justify-start"}
-      "Contact "]
-     [:p.mb-4.flex.items-center.justify-center {:class "md:justify-start hover:text-cyan"}
-      address-svg
-      " 7A Kapuni Grove, Porirua "]
-     [:p.mb-4.mx-4.flex.items-center.justify-center {:class "md:justify-start hover:text-cyan"}
-      email-svg
-      contact-us]
-     [:p.mb-4.mx-4.flex.items-center.justify-center {:class "md:justify-start"}
-      mobile-svg
-      nick-tel]
-     [:p.mb-4.mx-4.flex.items-center.justify-center {:class "md:justify-start"}
-      mobile-svg
-      juppy-tel]]]]]
-  )
+   [:.mb-9.flex.justify-center.text-stone-700
+    {:class "dark:text-stone-200"}
+    [:.flex.flex-col.items-center.justify-center.border-b-2.border-stone-200.p-6
+     {:class "dark:text-stone-700"}
+     [:.flex.flex-row
+      [:p.mb-4.mx-4.font-semibold.uppercase "Contact"]
+      [:p.mb-4.flex.items-center.justify-center.hover:text-stone-500
+       address-svg "7A Kapuni Grove, Porirua"]
+      [:p.mb-4.mx-4.flex.items-center.justify-center
+       {:class "hover:text-stone-500"}
+       email-svg contact-us]
+      [:p.mb-4.mx-4.flex.items-center.justify-center
+       {:class "hover:text-stone-500"}
+       mobile-svg nick-tel]
+      [:p.mb-4.mx-4.flex.items-center.justify-center
+       {:class "hover:text-stone-500"}
+       mobile-svg juppy-tel]]]]])
 
 (def phone
   [:svg.size-6 {:fill "currentColor" :viewBox "0 0 24 24"
@@ -177,7 +197,7 @@
 
 
 (def nav
-  [:nav.block.w-full.px-4.py-2.mx-auto.bg-neutral-100.bg-opacity-90.sticky.top-3.shadow
+  [:nav.block.w-full.px-4.py-2.bg-neutral-100.bg-opacity-90.sticky.top-3.shadow
    {:class "lg:px-8 lg:py-3 backdrop-blur-lg backdrop-saturate-150 z-[9999]"
     :data-twe-navbar-ref ""
     }
@@ -191,14 +211,30 @@
      {:class "hidden lg:block"}
      [:ul.flex.flex-col.gap-2.mt-2.mb-4
       {:class "lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6"}
-      [:li.flex.items-center.p-1.text-sm.gap-x-2.text-slate-200
-       [:a {:href "/foundations", :class "flex items-center"} "Foundations"]]
-      [:li.flex.items-center.p-1.text-sm.gap-x-2.text-slate-200
-       [:a {:href "/precast", :class "flex items-center"} "PreCast"]]
-      [:li.flex.items-center.p-1.text-sm.gap-x-2.text-slate-200
+      [:li.flex.items-center.p-1.text-sm.gap-x-2.text-slate-800
+       [:a {:href "/services", :class "flex items-center"} "Services"]]
+      [:li.flex.items-center.p-1.text-sm.gap-x-2.text-slate-800
        [:a {:href "/projects", :class "flex items-center"} "Projects"]]
-      [:li.flex.items-center.p-1.text-sm.gap-x-2.text-slate-200
-       [:a {:href "/about", :class "flex items-center"} "About"]]]]
+      [:li.flex.items-center.p-1.text-sm.gap-x-2.text-slate-800
+       [:a {:href "/products", :class "flex items-center"} "Products"]]
+      [:li.flex.items-center.p-1.text-sm.gap-x-2.text-slate-800
+       [:a {:href "/about", :class "flex items-center"} "About Us"]
+       [:a
+        {:class
+         "mr-4 text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 [&.active]:text-black/90 dark:[&.active]:text-neutral-400",
+         :href "/about"}
+        [:span
+         {:class "[&>svg]:w-5"}
+         [:svg
+          {:xmlns "http://www.w3.org/2000/svg",
+           :viewBox "0 0 24 24",
+           :fill "currentColor"}
+          [:path
+           {:fill-rule "evenodd",
+            :d
+            "M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z",
+            :clip-rule "evenodd"}]]]]]
+      ]]
     [:button
      {:class
       "relative ml-auto h-6 max-h-[40px] w-6 max-w-[40px] select-none rounded-lg text-center align-middle text-xs font-medium uppercase text-inherit transition-all hover:bg-transparent focus:bg-transparent active:bg-transparent disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:hidden",
@@ -224,20 +260,82 @@
          :d "M4 6h16M4 12h16M4 18h16"}]]]]]])
 
 (def nav1
-  [:nav
+  [:nav.bg-stone-100.shadow-md.sticky.top-0.z-50
+   {:class "dark:bg-stone-800"}
+   [:.mx-auto.flex.w-full.flex-wrap.items-center.justify-between.px-6.py-4
+    {:class "md:container"}
+    ;; Hamburger button for mobile
+    [:button.block.border-0.bg-transparent.px-2.text-stone-600
+     {:type "button"
+      :class "hover:text-stone-800 focus:outline-none focus:ring-0 dark:text-stone-300 dark:hover:text-stone-100 lg:hidden"
+      :data-twe-collapse-init true
+      :data-twe-target "#navbarSupportedContent1"
+      :aria-controls "navbarSupportedContent1"
+      :aria-expanded "false"
+      :aria-label "Toggle navigation"}
+     [:span {:class "[&>svg]:w-7"}
+      [:svg.h-7.w-7 {:xmlns "http://www.w3.org/2000/svg"
+                     :viewBox "0 0 24 24"
+                     :fill "currentColor"}
+       [:path {:fill-rule "evenodd"
+               :d "M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z"
+               :clip-rule "evenodd"}]]]]
+
+    ;; Collapsible container
+    [:#navbarSupportedContent1.hidden.flex-grow.items-center
+     {:class "lg:flex"}
+     [:a.mr-4.cursor-pointer.text-stone-900
+      {:href "/#"
+       :class "dark:text-stone-200"}
+      [:img.object-contain.h-12.bg-stone-800 {:src "/img/rapidslabs-logo.webp"}]]
+     ;; Navigation links
+     [:ul.flex.list-none.mr-auto.flex-col.pl-0
+       {:class "lg:flex"}
+      [:li [:a.text-stone-600
+            {:class "hover:text-stone-800 focus:text-stone-800 dark:text-stone-200 dark:hover:text-stone-100 lg:px-2"
+             :href "/services"} "Services"]]
+      [:li [:a.text-stone-600
+            {:class "hover:text-stone-800 focus:text-stone-800 dark:text-stone-200 dark:hover:text-stone-100 lg:px-2"
+             :href "/projects"} "Projects"]]
+      [:li [:a.text-stone-600
+            {:class "hover:text-stone-800 focus:text-stone-800 dark:text-stone-200 dark:hover:text-stone-100 lg:px-2"
+             :href "/products"} "Products"]]]]
+
+    ;; Right-side elements
+    [:div.relative.flex.items-center
+     [:a.mr-4.text-stone-600
+      {:class "hover:text-stone-800 focus:text-stone-800 dark:text-stone-200 dark:hover:text-stone-100"
+       :href "/contact-us"}
+      [:svg {:class "w-5" :xmlns "http://www.w3.org/2000/svg"
+             :viewBox "0 0 24 24"
+             :fill "currentColor"}
+       [:path {:d "M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"}]
+       [:path {:d "M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"}]]]
+     [:a.mr-4.text-stone-600
+      {:class "hover:text-stone-800 focus:text-stone-800 dark:text-stone-200 dark:hover:text-stone-100"
+       :href "/about"}
+      [:svg {:class "w-5" :xmlns "http://www.w3.org/2000/svg"
+             :viewBox "0 0 24 24"
+             :fill "currentColor"}
+       [:path {:fill-rule "evenodd"
+               :d "M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z"
+               :clip-rule "evenodd"}]]]]]])
+
+(def nav2
+  [:nav.bg-white.shadow-md.sticky.top-0.z-50
    {:class
-    "flex-no-wrap relative flex w-full min-h-[56px] max-h-[56px] items-center justify-between bg-neutral-100 py-2 shadow-md shadow-black/5 dark:bg-neutral-600 dark:shadow-black/10 lg:flex-wrap lg:justify-start lg:py-4",
-    :data-twe-navbar-ref ""}
+    "flex-no-wrap relative w-full min-h-[120px] max-h-[120px] items-center justify-between bg-neutral-100 py-2 shadow-md shadow-black/5 dark:bg-neutral-600 dark:shadow-black/10 lg:flex-wrap lg:justify-start lg:py-4",
+    :data-twe-navbar-ref true}
    ;; need a container
    [:div
     {:class
-     "lg:container mx-auto flex w-full flex-wrap items-center justify-between px-3"}
-    ;; Hmaburger button for mobile
+     "md:container mx-auto flex w-full flex-wrap items-center justify-between px-6 py-4"}
+    ;; Hamburger button for mobile
     [:button
      {:class
       "block border-0 bg-transparent px-2 text-neutral-500 hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-200 lg:hidden",
       :type "button",
-      :data-twe-collapse-init "",
+      :data-twe-collapse-init true,
       :data-twe-target "#navbarSupportedContent1",
       :aria-controls "navbarSupportedContent1",
       :aria-expanded "false",
@@ -260,68 +358,56 @@
      {:class
       "!visible hidden flex-grow basis-[100%] items-center lg:!flex lg:basis-auto",
       :id "navbarSupportedContent1",
-      :data-twe-collapse-item ""}
+      :data-twe-collapse-item true
+      }
      ;; rapidslabs logo
-     [:a
-      {:class
-       "mb-4 mr-2 mt-3 flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:mb-0 lg:mt-0",
-       :href "#"}
-      [:img {:src "/img/rapidslabs-precast-logo.jpg"
-             :style {:height "25px" :width "50px"}
-             :alt ""
-             :loading "lazy"}]
-      ]
+     [:a {:href "/",
+          :class
+          "mr-4 block cursor-pointer py-1.5 text-base text-slate-200 font-semibold lg:mb-0 lg:mt-0 lg:pr-4"}
+      [:img.object-contain.h-12.bg-stone-800 {:src "/img/rapidslabs-logo.webp"}]]
+     ;; [:a
+     ;;  {:class
+     ;;   "mb-4 mr-2 mt-3 flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:mb-0 lg:mt-0",
+     ;;   :href "/#about"}
+     ;;  [:img {:src "/img/rapidslabs-precast-logo.jpg"
+     ;;         :style {:height "35px" :width "70px"}
+     ;;         :alt "About"
+     ;;         :loading "lazy"}]
+     ;;  ]
      (comment "Left navigation links")
      [:ul
       {:class "list-style-none mr-auto flex flex-col pl-0 lg:flex-row",
-       :data-twe-navbar-nav-ref ""}
+       :data-twe-navbar-nav-ref true
+       }
       [:li
-       {:class "mb-4 lg:mb-0 lg:pr-2", :data-twe-nav-item-ref ""}
-       ;; Foundations
+        {:class "mb-4 lg:mb-0 lg:pr-4", :data-twe-nav-item-ref true}
        [:a
         {:class
-         "text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400",
-         :href "/foundations",
-         :data-twe-nav-link-ref ""}
-        "Foundations"]]
-      ;; PreCast
+         "text-stone-500 hover:text-stone-700 focus:text-stone-700 disabled:text-black/30 dark:text-stone-200 dark:hover:text-stone-300 dark:focus:text-stone-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-yestone-400"
+         :href "/services" }
+        "Services"]]
       [:li
-       {:class "mb-4 lg:mb-0 lg:pr-2", :data-twe-nav-item-ref ""}
+       {:class "mb-4 lg:mb-0 lg:pr-4", :data-twe-nav-item-ref true}
        [:a
         {:class
-         "text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400",
-         :href "/precast",
-         :data-twe-nav-link-ref ""}
-        "PreCast"]]
-      ;; Projects
-      [:li
-       {:class "mb-4 lg:mb-0 lg:pr-2", :data-twe-nav-item-ref ""}
-       [:a
-        {:class
-         "text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400",
+         "text-stone-500 hover:text-stone-700 focus:text-stone-700 disabled:text-black/30 dark:text-stone-200 dark:hover:text-stone-300 dark:focus:text-stone-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-yestone-400"
          :href "/projects",
-         :data-twe-nav-link-ref ""}
+         :data-twe-nav-link-ref true
+         }
         "Projects"]]
+      [:li
+       {:class "mb-4 lg:mb-0 lg:pr-4", :data-twe-nav-item-ref true}
+       [:a
+        {:class
+         "text-stone-500 hover:text-stone-700 focus:text-stone-700 disabled:text-black/30 dark:text-stone-200 dark:hover:text-stone-300 dark:focus:text-stone-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-yestone-400"
+         :href "/products",
+         :data-twe-nav-link-ref true
+         }
+        "Products"]]
       ]]
-    (comment "Right elements")
+    ;; Right Elements
     [:div
      {:class "relative flex items-center"}
-     ;; (comment "Cog Icon")
-     ;; [:a
-     ;;  {:class
-     ;;   "mr-4 text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 [&.active]:text-black/90 dark:[&.active]:text-neutral-400",
-     ;;   :href "#"}
-     ;;  [:span
-     ;;   {:class "[&>svg]:w-5"}
-     ;;   [:svg
-     ;;    {:xmlns "http://www.w3.org/2000/svg",
-     ;;     :viewBox "0 0 24 24",
-     ;;     :fill "currentColor"}
-     ;;    [:path
-     ;;     {:fill-rule "evenodd",
-     ;;      :d
-     ;;      "M11.078 2.25c-.917 0-1.699.663-1.85 1.567L9.05 4.889c-.02.12-.115.26-.297.348a7.493 7.493 0 00-.986.57c-.166.115-.334.126-.45.083L6.3 5.508a1.875 1.875 0 00-2.282.819l-.922 1.597a1.875 1.875 0 00.432 2.385l.84.692c.095.078.17.229.154.43a7.598 7.598 0 000 1.139c.015.2-.059.352-.153.43l-.841.692a1.875 1.875 0 00-.432 2.385l.922 1.597a1.875 1.875 0 002.282.818l1.019-.382c.115-.043.283-.031.45.082.312.214.641.405.985.57.182.088.277.228.297.35l.178 1.071c.151.904.933 1.567 1.85 1.567h1.844c.916 0 1.699-.663 1.85-1.567l.178-1.072c.02-.12.114-.26.297-.349.344-.165.673-.356.985-.57.167-.114.335-.125.45-.082l1.02.382a1.875 1.875 0 002.28-.819l.923-1.597a1.875 1.875 0 00-.432-2.385l-.84-.692c-.095-.078-.17-.229-.154-.43a7.614 7.614 0 000-1.139c-.016-.2.059-.352.153-.43l.84-.692c.708-.582.891-1.59.433-2.385l-.922-1.597a1.875 1.875 0 00-2.282-.818l-1.02.382c-.114.043-.282.031-.449-.083a7.49 7.49 0 00-.985-.57c-.183-.087-.277-.227-.297-.348l-.179-1.072a1.875 1.875 0 00-1.85-1.567h-1.843zM12 15.75a3.75 3.75 0 100-7.5 3.75 3.75 0 000 7.5z",
-     ;;      :clip-rule "evenodd"}]]]]
      (comment "Envelope Icon")
      [:a
       {:class
@@ -343,7 +429,8 @@
      [:a
       {:class
        "mr-4 text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 [&.active]:text-black/90 dark:[&.active]:text-neutral-400",
-       :href "/about"}
+       :href "/about"
+       :alt "About Us" }
       [:span
        {:class "[&>svg]:w-5"}
        [:svg
@@ -354,31 +441,43 @@
          {:fill-rule "evenodd",
           :d
           "M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z",
-          :clip-rule "evenodd"}]]]]]]])
+          :clip-rule "evenodd"}]]] ]]]])
 
-(def footer
-  [:<>
-   [:footer.text-white.sticky.bottom-0
-    {:class
-     "flex-no-wrap flex w-full min-h-[56px] max-h-[56px] items-center justify-between bg-neutral-100 pb-2 shadow-md shadow-black/5 dark:bg-neutral-600 dark:shadow-black/10 lg:flex-wrap lg:justify-start lg:pb-4",}
-    [:div
+ (def footer
+   [:<>
+    [:footer.text-white
      {:class
-      "lg:container mx-auto flex w-full flex-wrap items-center justify-between px-3"}
-     [:.flex-row
-      {:class '["sm:px-6" "lg:px-8"]}
-      (contact-section)]
-     ]]]
-  )
+      "w-full items-center justify-between bg-neutral-100 pb-2 shadow-md shadow-black/5 dark:bg-stone-800 dark:shadow-black/10 lg:flex-wrap lg:justify-start lg:pb-4"
+       :data-twe-sticky-position "bottom"
+      }
+     [:div
+      {:class
+       "md:container  min-h-[56px] max-h-[56px]  mx-auto flex w-full flex-wrap items-center justify-between px-3"}
+      [:.flex-row
+       {:class '["sm:px-6" "lg:px-8"]}
+       (contact-section)]
+      ]]]
+   )
+
+(def footer2
+  [:footer.bg-stone-100.shadow-md.sticky.bottom-0
+   {:class "md:container dark:shadow-black/10 dark:bg-stone-800"}
+   [:.mx-auto.items-center.justify-between.px-3.py-4
+    {:class "lg:flex-row sm:px-6 lg:px-8"}
+    (contact-section)
+    ]])
 
 (defn app-page [ctx & body]
   (base
    ctx
-   nav1
-   [:main.bg-cover.bg-no-repeat.h-screen
-    { :style {:margin-top "-56px"
-              :margin-bottom "-56px"
-              :background-image "url('/img/rapidslabs_juppy.jpg')"}}
-    body
-    ]
-   footer
-   ))
+   [:div
+    {:class "mx-auto max-w-[540px] sm:max-w-[604px] md:max-w-[720px] lg:max-w-[972px] xl:max-w-full xl:px-12 2xl:max-w-[1400px]"}
+    nav2
+    [:main.text-stone-800.bg-stone-100
+     {:class "mt-[60px] md:container mx-auto px-4 dark:text-stone-200 dark:bg-stone-900"
+
+      }
+     body
+     ]
+    footer
+    ]))
